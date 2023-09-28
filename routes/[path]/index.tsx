@@ -1,5 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { languageMap } from "../../utils/languages.ts";
+import { languages, extensionMap } from "../../utils/languages.ts";
 import ToolBox from "../../islands/ToolBox.tsx";
 import IconChevronRight from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/chevron-right.tsx";
 import hljs from "https://esm.sh/highlight.js@11.8.0/lib/core";
@@ -16,13 +16,12 @@ Marked.setOptions({
   smartypants: false,
 });
 
-for (const [lang, exts] of Object.entries(languageMap)) {
-  const _lang = await import(
-    `https://esm.sh/highlight.js@11.8.0/lib/languages/${lang}.js`
-  );
-
+for (const [lang, exts] of Object.entries(extensionMap)) {
   if (exts.length > 0) {
-    hljs.registerLanguage(lang, _lang.default);
+    // Remove leading underscore, replace other underscores with dashes
+    const name = lang.replace(/^_/, "").replace(/_/g, "-");
+    // @ts-ignore: this is fine
+    hljs.registerLanguage(name, languages[lang]!);
     hljs.registerAliases(exts, { languageName: lang });
   }
 }
@@ -83,13 +82,13 @@ export default function Home(props: PageProps<Paste>) {
   }
 
   return (
-    <div class="w-full h-full pb-32 sm:pb-0">
-      <div class="absolute bottom-0 right-0">
+    <div class="w-full min-h-full pb-32 sm:pb-0">
+      <div class="fixed bottom-0 right-0">
         <ToolBox pasteId={id} />
       </div>
 
-      <div class="flex flex-row w-full h-full justify-normal text-gray-900 dark:text-gray-100">
-        <div class="flex flex-col w-12 h-full px-2 py-4 mr-2 text-gray-400 dark:text-gray-500 border-r border-gray-300 dark:border-gray-600">
+      <div class="flex flex-row w-full min-h-full justify-normal text-gray-900 dark:text-gray-100">
+        <div class="flex flex-col w-12 min-h-full px-2 py-4 mr-2 text-gray-400 dark:text-gray-500 border-r border-gray-300 dark:border-gray-600">
           <IconChevronRight />
         </div>
 

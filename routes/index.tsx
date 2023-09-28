@@ -20,7 +20,7 @@ export const handler: Handlers<Paste> = {
 export default function Home(props: PageProps<Paste>) {
   return (
     <div class="w-full h-full pb-32 sm:pb-0">
-      <div class="absolute bottom-0 right-0">
+      <div class="fixed bottom-0 right-0">
         <ToolBox />
       </div>
       <div class="flex flex-row w-full h-full justify-normal">
