@@ -6,6 +6,9 @@ export default function App({ Component }: AppProps) {
   const PLAUSIBLE_DOMAIN = Deno.env.get("PLAUSIBLE_DOMAIN");
   const ACKEE_URL = Deno.env.get("ACKEE_URL");
   const ACKEE_DOMAIN_ID = Deno.env.get("ACKEE_DOMAIN_ID");
+  const MATOMO_URL = Deno.env.get("MATOMO_URL");
+  const MATOMO_SITE_ID = Deno.env.get("MATOMO_SITE_ID");
+  const MATOMO_
   
   return (
     <html class="w-full h-full">
@@ -27,11 +30,28 @@ export default function App({ Component }: AppProps) {
         )}
 
         {PLAUSIBLE_DOMAIN && (
-          <script async defer data-domain={PLAUSIBLE_DOMAIN} src={`${PLAUSIBLE_URL}/js/script.js`}></script>
+          <script defer data-domain={PLAUSIBLE_DOMAIN} src={`${PLAUSIBLE_URL}/js/script.js`}></script>
         )}
 
         {ACKEE_URL && ACKEE_DOMAIN_ID && (
           <script async src={`${ACKEE_URL}/tracker.js`} data-ackee-server={ACKEE_URL} data-ackee-domain-id={ACKEE_DOMAIN_ID}></script>
+        )}
+
+        {MATOMO_URL && MATOMO_SITE_ID && (
+          <>
+            <script defer src={`${MATOMO_URL}/matomo.js`}></script>
+            <script dangerouslySetInnerHTML={{ __html: `
+              var _paq = window._paq = window._paq || [];
+              _paq.push(['trackPageView']);
+              _paq.push(['enableLinkTracking']);
+              (function() {
+                var u="${MATOMO_URL}/";
+                _paq.push(['setTrackerUrl', u+'matomo.php']);
+                _paq.push(['setSiteId', '${MATOMO_SITE_ID}']);
+                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+              })();`}} />
+          </>
         )}
       </head>
       <body class="w-full h-full">
