@@ -27,7 +27,7 @@ export default function App({ Component }: AppProps) {
         )}
 
         {PLAUSIBLE_DOMAIN && (
-          <script async defer data-domain={PLAUSIBLE_DOMAIN} src={`${PLAUSIBLE_URL}/js/plausible.js`}></script>
+          <script async defer data-domain={PLAUSIBLE_DOMAIN} src={`${PLAUSIBLE_URL}/js/script.js`}></script>
         )}
 
         {ACKEE_URL && ACKEE_DOMAIN_ID && (
