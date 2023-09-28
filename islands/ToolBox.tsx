@@ -27,7 +27,7 @@ export default function ToolBox(props: ToolboxProps) {
     <div class="flex flex-row h-16 max-w-[100vw] w-[595px] bg-gray-800">
       <a
         href="/about"
-        class="flex flex-col items-center justify-center py-4 px-6 bg-black bg-opacity-50"
+        class="flex flex-col items-center justify-center py-2 px-4 md:py-4 md:px-6 bg-black bg-opacity-50"
       >
         <img class="w-8" src={asset("images/logo.svg")} />
       </a>

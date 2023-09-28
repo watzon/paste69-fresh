@@ -1,7 +1,7 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { extensionMap, languages } from "../../utils/languages.ts";
 import hljs from "https://esm.sh/highlight.js@11.8.0/lib/core";
-const { Marked } = await import("https://esm.sh/@ts-stack/markdown@1.5.0");
+import { Marked } from "https://esm.sh/@ts-stack/markdown@1.5.0";
 import { Paste } from "../../db/db.ts";
 import ToolBox from "../../islands/ToolBox.tsx";
 import { Head } from "$fresh/runtime.ts";
@@ -42,6 +42,7 @@ export default function Home(props: PageProps<Paste>) {
   const { path } = props.params;
 
   let markdown = false;
+  const lines = (props.data.contents as string).split("\n");
   let output: string | undefined = undefined;
   let [id, ext] = path.split(".");
 
@@ -89,7 +90,7 @@ export default function Home(props: PageProps<Paste>) {
       <div class="fixed bottom-0 right-0">
         <ToolBox pasteId={id} />
       </div>
-      <div class="flex flex-col w-full h-full px-2 pt-4">
+      <div class="flex flex-col px-2 pt-4">
         {markdown
           ? (
             <div
@@ -98,13 +99,21 @@ export default function Home(props: PageProps<Paste>) {
             />
           )
           : (
-            <pre class="w-full h-full">
-              <code
-                dangerouslySetInnerHTML={{ __html: output! }}
-              />
-            </pre>
+            <>
+              <div class="absolute top-[35px] left-[15px]">
+                {Array.from(lines).map((_, i) => (
+                  <div class="text-gray-400 dark:text-gray-500">{i + 1}</div>
+                ))}
+              </div>
+              <pre>
+                <code
+                  dangerouslySetInnerHTML={{ __html: output! }}
+                  />
+              </pre>
+            </>
           )}
       </div>
+      <div class="h-20 md:h-0"></div>
     </>
   );
 }

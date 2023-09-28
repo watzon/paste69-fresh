@@ -6,7 +6,7 @@ export default function About() {
       <div class="fixed bottom-0 right-0">
         <ToolBox disableSave={true} />
       </div>
-      <div class="flex flex-col w-full h-full pl-8 prose prose-xl dark:prose-dark">
+      <div class="h-full pl-8 prose prose-xl dark:prose-dark">
         <h1 class="mb-2">Paste69</h1>
 
         <p>
@@ -34,9 +34,9 @@ export default function About() {
         </p>
 
         <pre>
-                    <code>
-                        {`{ "contents": "paste contents" }`}
-                    </code>
+          <code>
+              {`{ "contents": "paste contents" }`}
+          </code>
         </pre>
 
         <p>

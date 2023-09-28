@@ -2,6 +2,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import Editor from "../islands/Editor.tsx";
 import { Paste } from "../db/db.ts";
 import ToolBox from "../islands/ToolBox.tsx";
+import IconChevronRight from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/chevron-right.tsx";
 
 export const handler: Handlers<Paste> = {
   async GET(req, ctx) {
@@ -19,14 +20,16 @@ export const handler: Handlers<Paste> = {
 export default function Home(props: PageProps<Paste>) {
   return (
     <>
+      <div class="absolute top-[18px] left-[5px]">
+        <IconChevronRight />
+      </div>
       <div class="fixed bottom-0 right-0">
         <ToolBox />
       </div>
-      <div class="flex flex-col w-full h-full">
-        <Editor
-          contents={props.data ? props.data.contents as string : undefined}
-        />
-      </div>
+      <Editor
+        contents={props.data ? props.data.contents as string : undefined}
+      />
+      <div class="h-20 md:h-0"></div>
     </>
   );
 }
