@@ -29,7 +29,7 @@ export default function Home(props: PageProps<Paste>) {
       <Editor
         contents={props.data ? props.data.contents as string : undefined}
       />
-      <div class="h-20 md:h-0"></div>
+      <div class="h-20 md:h-6"></div>
     </>
   );
 }
