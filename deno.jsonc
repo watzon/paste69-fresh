@@ -32,7 +32,7 @@
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.2.3",
     "twind": "https://esm.sh/twind@0.16.19",
     "twind/": "https://esm.sh/twind@0.16.19/",
-    "$std/": "https://deno.land/std@0.193.0/",
+    "$std/": "https://deno.land/std@0.203.0/",
     "appwrite/": "https://deno.land/x/appwrite@9.0.0/",
     "denodb/": "https://deno.land/x/denodb@v1.4.0/"
   },

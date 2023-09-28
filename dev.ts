@@ -3,6 +3,11 @@
 import dev from "$fresh/dev.ts";
 import config from "./fresh.config.ts";
 
-import "$std/dotenv/load.ts";
+import { load as loadDotenv } from "$std/dotenv/mod.ts";
+
+await loadDotenv({
+    allowEmptyValues: true,
+    export: true,
+})
 
 await dev(import.meta.url, "./main.ts", config);

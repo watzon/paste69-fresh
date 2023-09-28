@@ -4,6 +4,7 @@ import hljs from "https://esm.sh/highlight.js@11.8.0/lib/core";
 const { Marked } = await import("https://esm.sh/@ts-stack/markdown@1.5.0");
 import { Paste } from "../../db/db.ts";
 import ToolBox from "../../islands/ToolBox.tsx";
+import { Head } from "$fresh/runtime.ts";
 
 Marked.setOptions({
   gfm: true,
@@ -82,6 +83,9 @@ export default function Home(props: PageProps<Paste>) {
 
   return (
     <>
+      <Head>
+        <title>Paste69 - viewing {id}</title>
+      </Head>
       <div class="fixed bottom-0 right-0">
         <ToolBox pasteId={id} />
       </div>

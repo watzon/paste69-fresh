@@ -8,8 +8,8 @@ export default {
     darkMode: "class",
     presets: [
       presetTailwind() as Preset,
-      presetTypography(),
-      presetAutoprefix(),
+      presetTypography() as Preset,
+      presetAutoprefix() as Preset,
     ],
   }),
   selfURL: import.meta.url,
