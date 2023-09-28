@@ -85,7 +85,7 @@ export default function Home(props: PageProps<Paste>) {
       <div class="fixed bottom-0 right-0">
         <ToolBox pasteId={id} />
       </div>
-      <div class="flex flex-col w-full h-full">
+      <div class="flex flex-col w-full h-full px-2 pt-4">
         {markdown
           ? (
             <div
