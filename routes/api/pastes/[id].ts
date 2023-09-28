@@ -10,7 +10,6 @@ export const handler: Handlers = {
       contents: paste.contents,
       views: paste.views,
       createdAt: paste.createdAt,
-      updatedAt: paste.updatedAt,
     };
     return new Response(JSON.stringify(response), {
       headers: { "content-type": "application/json" },

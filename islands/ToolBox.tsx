@@ -8,6 +8,7 @@ import { editorContents } from "../utils/state.ts";
 
 export interface ToolboxProps {
   pasteId?: string;
+  disableSave?: boolean;
 }
 
 export default function ToolBox(props: ToolboxProps) {
@@ -33,7 +34,7 @@ export default function ToolBox(props: ToolboxProps) {
 
       <div class="flex flex-col items-center justify-center px-12 w-full">
         <div class="flex flex-row justify-between gap-2 w-full">
-          <Button title="Save" disabled={!!props.pasteId} onClick={savePaste}>
+          <Button title="Save" disabled={props.disableSave || !!props.pasteId} onClick={savePaste}>
             <IconDeviceFloppy />
           </Button>
           <Button title="New" href="/">

@@ -1,10 +1,9 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { languages, extensionMap } from "../../utils/languages.ts";
-import ToolBox from "../../islands/ToolBox.tsx";
-import IconChevronRight from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/chevron-right.tsx";
+import { extensionMap, languages } from "../../utils/languages.ts";
 import hljs from "https://esm.sh/highlight.js@11.8.0/lib/core";
 const { Marked } = await import("https://esm.sh/@ts-stack/markdown@1.5.0");
 import { Paste } from "../../db/db.ts";
+import ToolBox from "../../islands/ToolBox.tsx";
 
 Marked.setOptions({
   gfm: true,
@@ -82,33 +81,26 @@ export default function Home(props: PageProps<Paste>) {
   }
 
   return (
-    <div class="w-full min-h-full pb-32 sm:pb-0">
+    <>
       <div class="fixed bottom-0 right-0">
         <ToolBox pasteId={id} />
       </div>
-
-      <div class="flex flex-row w-full min-h-full justify-normal text-gray-900 dark:text-gray-100">
-        <div class="flex flex-col w-12 min-h-full px-2 py-4 mr-2 text-gray-400 dark:text-gray-500 border-r border-gray-300 dark:border-gray-600">
-          <IconChevronRight />
-        </div>
-
-        <div class="px-2 py-4 w-full h-full">
-          {markdown
-            ? (
-              <div
-                class="prose prose-xl dark:prose-dark"
-                dangerouslySetInnerHTML={{ __html: output! }}
-              />
-            )
-            : (
-              <pre class="w-full h-full">
-            <code
+      <div class="flex flex-col w-full h-full">
+        {markdown
+          ? (
+            <div
+              class="prose prose-xl dark:prose-dark"
               dangerouslySetInnerHTML={{ __html: output! }}
             />
-              </pre>
-            )}
-        </div>
+          )
+          : (
+            <pre class="w-full h-full">
+              <code
+                dangerouslySetInnerHTML={{ __html: output! }}
+              />
+            </pre>
+          )}
       </div>
-    </div>
+    </>
   );
 }

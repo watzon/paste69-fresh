@@ -6,9 +6,10 @@ import * as $0 from "./routes/[path]/index.tsx";
 import * as $1 from "./routes/_404.tsx";
 import * as $2 from "./routes/_app.tsx";
 import * as $3 from "./routes/_layout.tsx";
-import * as $4 from "./routes/api/pastes/[id].ts";
-import * as $5 from "./routes/api/pastes/index.ts";
-import * as $6 from "./routes/index.tsx";
+import * as $4 from "./routes/about.tsx";
+import * as $5 from "./routes/api/pastes/[id].ts";
+import * as $6 from "./routes/api/pastes/index.ts";
+import * as $7 from "./routes/index.tsx";
 import * as $$0 from "./islands/ColorMode.tsx";
 import * as $$1 from "./islands/Editor.tsx";
 import * as $$2 from "./islands/ToolBox.tsx";
@@ -19,9 +20,10 @@ const manifest = {
     "./routes/_404.tsx": $1,
     "./routes/_app.tsx": $2,
     "./routes/_layout.tsx": $3,
-    "./routes/api/pastes/[id].ts": $4,
-    "./routes/api/pastes/index.ts": $5,
-    "./routes/index.tsx": $6,
+    "./routes/about.tsx": $4,
+    "./routes/api/pastes/[id].ts": $5,
+    "./routes/api/pastes/index.ts": $6,
+    "./routes/index.tsx": $7,
   },
   islands: {
     "./islands/ColorMode.tsx": $$0,
