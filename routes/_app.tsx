@@ -41,6 +41,7 @@ export default function App({ Component }: AppProps) {
             <script defer src={`${MATOMO_URL}/matomo.js`}></script>
             <script dangerouslySetInnerHTML={{ __html: `
               var _paq = window._paq = window._paq || [];
+              /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
               _paq.push(['trackPageView']);
               _paq.push(['enableLinkTracking']);
               (function() {
