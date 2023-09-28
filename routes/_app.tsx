@@ -31,7 +31,7 @@ export default function App({ Component }: AppProps) {
         )}
 
         {ACKEE_URL && ACKEE_DOMAIN_ID && (
-          <script async src="http://ackee.watzon.tech/tracker.js" data-ackee-server="http://ackee.watzon.tech" data-ackee-domain-id={ACKEE_DOMAIN_ID}></script>
+          <script async src={`${ACKEE_URL}/tracker.js`} data-ackee-server={ACKEE_URL} data-ackee-domain-id={ACKEE_DOMAIN_ID}></script>
         )}
       </head>
       <body class="w-full h-full">
