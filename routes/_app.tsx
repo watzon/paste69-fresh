@@ -8,7 +8,6 @@ export default function App({ Component }: AppProps) {
   const ACKEE_DOMAIN_ID = Deno.env.get("ACKEE_DOMAIN_ID");
   const MATOMO_URL = Deno.env.get("MATOMO_URL");
   const MATOMO_SITE_ID = Deno.env.get("MATOMO_SITE_ID");
-  const MATOMO_
   
   return (
     <html class="w-full h-full">
