@@ -18,7 +18,7 @@ Marked.setOptions({
 
 for (const [lang, exts] of Object.entries(languageMap)) {
   const _lang = await import(
-    `https://esm.sh/highlight.js/lib/languages/${lang}.js`
+    `https://esm.sh/highlight.js@11.8.0/lib/languages/${lang}.js`
   );
 
   if (exts.length > 0) {
