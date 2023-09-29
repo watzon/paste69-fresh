@@ -21,7 +21,7 @@ export const handler: Handlers<Paste> = {
     const [id, _] = path.split(".");
     const paste = await Paste.find(id);
     if (!paste) {
-      return new Response("Paste not found", { status: 404 });
+      return ctx.renderNotFound();
     }
     return ctx.render(paste);
   },
