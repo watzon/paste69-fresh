@@ -21,5 +21,8 @@ ENV DENO_DIR /var/tmp/deno_cache
 # Copy cached files from previous stage
 COPY --from=cache /var/tmp/deno_cache /var/tmp/deno_cache
 
+# Copy the rest of the app
+COPY . .
+
 # Run the app
 CMD ["deno", "task", "preview"]
