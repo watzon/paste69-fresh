@@ -1,3 +1,21 @@
-import { signal } from "@preact/signals";
+import { Signal, signal } from "@preact/signals";
 
-export const editorContents = signal<string>("");
+export interface AppStateType {
+  readonly editorContents: Signal<string>;
+  setEditorContents: (contents: string) => void;
+}
+
+function createAppState(): AppStateType {
+  const editorContents = signal("");
+
+  function setEditorContents(contents: string) {
+    editorContents.value = contents;
+  }
+
+  return {
+    editorContents,
+    setEditorContents,
+  };
+}
+
+export default createAppState();

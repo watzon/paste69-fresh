@@ -10,9 +10,10 @@ import * as $4 from "./routes/about.tsx";
 import * as $5 from "./routes/api/pastes/[id].ts";
 import * as $6 from "./routes/api/pastes/index.ts";
 import * as $7 from "./routes/index.tsx";
-import * as $$0 from "./islands/ColorMode.tsx";
-import * as $$1 from "./islands/Editor.tsx";
-import * as $$2 from "./islands/ToolBox.tsx";
+import * as $$0 from "./islands/App.tsx";
+import * as $$1 from "./islands/ColorMode.tsx";
+import * as $$2 from "./islands/Editor.tsx";
+import * as $$3 from "./islands/ToolBox.tsx";
 
 const manifest = {
   routes: {
@@ -26,9 +27,10 @@ const manifest = {
     "./routes/index.tsx": $7,
   },
   islands: {
-    "./islands/ColorMode.tsx": $$0,
-    "./islands/Editor.tsx": $$1,
-    "./islands/ToolBox.tsx": $$2,
+    "./islands/App.tsx": $$0,
+    "./islands/ColorMode.tsx": $$1,
+    "./islands/Editor.tsx": $$2,
+    "./islands/ToolBox.tsx": $$3,
   },
   baseUrl: import.meta.url,
 };

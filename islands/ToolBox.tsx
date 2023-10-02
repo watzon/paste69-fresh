@@ -4,7 +4,8 @@ import ColorMode from "./ColorMode.tsx";
 import IconDeviceFloppy from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/device-floppy.tsx";
 import IconTextPlus from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/text-plus.tsx";
 import IconCopy from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/copy.tsx";
-import { editorContents } from "../utils/state.ts";
+import { useContext } from "preact/hooks";
+import { AppState } from "./App.tsx";
 
 export interface ToolboxProps {
   pasteId?: string;
@@ -12,12 +13,13 @@ export interface ToolboxProps {
 }
 
 export default function ToolBox(props: ToolboxProps) {
+  const { editorContents } = useContext(AppState);
+
   const savePaste = async () => {
-    const contents = editorContents.value;
-    if (!contents) return;
+    if (!editorContents.value) return;
     const res = await fetch("/api/pastes", {
       method: "POST",
-      body: JSON.stringify({ contents }),
+      body: JSON.stringify({ contents: editorContents.value }),
     });
     const { id } = await res.json();
     window.location.href = `/${id}`;
@@ -34,7 +36,11 @@ export default function ToolBox(props: ToolboxProps) {
 
       <div class="flex flex-col items-center justify-center px-12 w-full">
         <div class="flex flex-row justify-between gap-2 w-full">
-          <Button title="Save" disabled={props.disableSave || !!props.pasteId} onClick={savePaste}>
+          <Button
+            title="Save"
+            disabled={props.disableSave || !!props.pasteId}
+            onClick={savePaste}
+          >
             <IconDeviceFloppy />
           </Button>
           <Button title="New" href="/">

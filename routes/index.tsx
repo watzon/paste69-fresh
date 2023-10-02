@@ -3,6 +3,7 @@ import Paste from "../interfaces/paste.ts";
 import Editor from "../islands/Editor.tsx";
 import ToolBox from "../islands/ToolBox.tsx";
 import IconChevronRight from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/chevron-right.tsx";
+import App from "../islands/App.tsx";
 
 export const handler: Handlers<Paste> = {
   async GET(req, ctx) {
@@ -21,8 +22,9 @@ export const handler: Handlers<Paste> = {
 };
 
 export default function Home(props: PageProps<Paste>) {
+  console.log(props);
   return (
-    <>
+    <App>
       <div class="absolute top-[18px] left-[5px]">
         <IconChevronRight />
       </div>
@@ -33,6 +35,6 @@ export default function Home(props: PageProps<Paste>) {
         contents={props.data ? props.data.contents as string : undefined}
       />
       <div class="h-20 md:h-6"></div>
-    </>
+    </App>
   );
 }
