@@ -8,7 +8,9 @@ export const handler: Handlers<Paste> = {
   async GET(req, ctx) {
     const copyId = new URL(req.url).searchParams.get("copy");
     if (copyId) {
-      const result = await fetch(`/api/pastes/${copyId}`);
+      const result = await fetch(
+        `${Deno.env.get("SITE_URL")}/api/pastes/${copyId}`,
+      );
       const paste = await result.json();
       if (paste) {
         return ctx.render(paste);
