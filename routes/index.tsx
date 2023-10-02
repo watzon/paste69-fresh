@@ -1,6 +1,6 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
+import Paste from "../interfaces/paste.ts";
 import Editor from "../islands/Editor.tsx";
-import { Paste } from "../db/db.ts";
 import ToolBox from "../islands/ToolBox.tsx";
 import IconChevronRight from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/chevron-right.tsx";
 
@@ -8,7 +8,8 @@ export const handler: Handlers<Paste> = {
   async GET(req, ctx) {
     const copyId = new URL(req.url).searchParams.get("copy");
     if (copyId) {
-      const paste = await Paste.find(copyId);
+      const result = await fetch(`/api/pastes/${copyId}`);
+      const paste = await result.json();
       if (paste) {
         return ctx.render(paste);
       }

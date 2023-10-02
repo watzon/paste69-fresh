@@ -1,9 +1,9 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { Marked } from "https://esm.sh/@ts-stack/markdown@1.5.0";
-import { Paste } from "../../db/db.ts";
 import ToolBox from "../../islands/ToolBox.tsx";
 import { Head } from "$fresh/runtime.ts";
-import { detectLanguage, highlight } from "../../utils/hljs.ts";
+import { highlight } from "../../utils/hljs.ts";
+import Paste from "../../interfaces/paste.ts";
 
 Marked.setOptions({
   gfm: true,
@@ -19,7 +19,10 @@ export const handler: Handlers<Paste> = {
   async GET(_req, ctx) {
     const { path } = ctx.params;
     const [id, _] = path.split(".");
-    const paste = await Paste.find(id);
+    const result = await fetch(
+      `${Deno.env.get("SITE_URL")}/api/pastes/${id}`,
+    );
+    const paste = await result.json();
     if (!paste) {
       return ctx.renderNotFound();
     }
@@ -34,7 +37,7 @@ export default function Home(props: PageProps<Paste>) {
   const lines = (props.data.contents as string).split("\n");
   const [id, ext] = path.split(".");
 
-  let output: string
+  let output: string;
 
   // Check if the language is markdown, and if the `render` query param is set
   // to `true`. If so, render the markdown instead of the raw contents.

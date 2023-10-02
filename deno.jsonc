@@ -33,7 +33,7 @@
     "twind/": "https://esm.sh/twind@0.16.19/",
     "$std/": "https://deno.land/std@0.203.0/",
     "appwrite/": "https://deno.land/x/appwrite@9.0.0/",
-    "denodb/": "https://deno.land/x/denodb@v1.4.0/"
+    "postgres/": "https://deno.land/x/postgres@v0.17.0/"
   },
   "scopes": {
     "https://raw.githubusercontent.com/Zhomart/dex/": {
