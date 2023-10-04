@@ -52,7 +52,7 @@ export default function About() {
 
         <pre>
           <code>
-              $ curl -O https://paste69.com/paste69.sh && chmod +x paste69.sh<br/>
+              $ curl -O https://0x45.st/paste69.sh && chmod +x paste69.sh<br/>
               $ ./paste69.sh --help<br/><br/>
 
               Paste69 CLI script<br/><br/>
