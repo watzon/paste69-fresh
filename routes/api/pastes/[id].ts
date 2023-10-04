@@ -16,6 +16,7 @@ export const handler: Handlers = {
 
     const response = {
       id: paste.id,
+      url: `${Deno.env.get("SITE_URL")}/${paste.id}.${paste.highlight}`,
       contents: paste.contents,
       highlight: paste.highlight,
       createdAt: paste.createdAt,

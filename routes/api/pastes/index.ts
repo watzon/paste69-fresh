@@ -28,7 +28,7 @@ export const handler: Handlers = {
     const response = {
       id,
       highlight,
-      url: `${Deno.env.get("BASE_URL")}/${id}.${highlight}`,
+      url: `${Deno.env.get("SITE_URL")}/${id}.${highlight}`,
       createdAt,
     };
 

@@ -43,6 +43,43 @@ export default function About() {
           local storage, and loaded the next time you visit the site.
         </p>
 
+        <h2 class="mt-4 mb-2">CLI Script</h2>
+
+        <p>
+          To make it easier to create pastes, a CLI script is available. The
+          script can be found <a href="/paste69.sh">here</a>. To use the script:
+        </p>
+
+        <pre>
+          <code>
+              $ curl -O https://paste69.com/paste69.sh && chmod +x paste69.sh<br/>
+              $ ./paste69.sh --help<br/><br/>
+
+              Paste69 CLI script<br/><br/>
+
+              Usage:<br/>
+                paste69 &lt;file&gt; [options]<br/>
+                cat &lt;file&gt; | paste69 [options]<br/><br/>
+
+              Options:<br/>
+                -h, --help                 Show this help text<br/>
+                -r, --raw                  Return the raw JSON response<br/>
+                -c, --copy                 Copy the paste URL to the clipboard<br/>
+          </code>
+        </pre>
+
+        <p>
+          To create a paste with the script, simply pipe the contents of a file
+          to the script:
+        </p>
+
+        <pre>
+          <code>
+              $ cat file.md | ./paste69.sh<br/>
+              https://0x45.st/some-random-id.md
+          </code>
+        </pre>
+
         <h2 class="mt-4 mb-2">API</h2>
 
         <p>
