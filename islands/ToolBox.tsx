@@ -21,8 +21,8 @@ export default function ToolBox(props: ToolboxProps) {
       method: "POST",
       body: JSON.stringify({ contents: editorContents.value }),
     });
-    const { id } = await res.json();
-    window.location.href = `/${id}`;
+    const { id, highlight } = await res.json();
+    window.location.href = `/${id}.${highlight}`;
   };
 
   return (

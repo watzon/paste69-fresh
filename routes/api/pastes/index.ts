@@ -1,7 +1,7 @@
 import { Handlers } from "$fresh/server.ts";
-import { client } from "../../../utils/db.ts";
-import Paste from "../../../interfaces/paste.ts";
+import { pastes } from "../../../utils/db.ts";
 import { generate } from "npm:random-words";
+import { detectLanguage } from "../../../utils/hljs.ts";
 
 export const handler: Handlers = {
   async POST(req, _ctx) {
@@ -15,18 +15,21 @@ export const handler: Handlers = {
       });
     }
 
-    const result = await client.queryObject<Paste>({
-      camelcase: true,
-      text: "INSERT INTO pastes (id, contents) VALUES ($1, $2) RETURNING *",
-      args: [id, contents],
+    const highlight = detectLanguage(contents) || "txt";
+    const createdAt = new Date();
+
+    await pastes.insertOne({
+      id,
+      contents,
+      highlight,
+      createdAt,
     });
-    const paste = result.rows[0];
 
     const response = {
-      id: paste.id,
-      contents: paste.contents,
-      views: paste.views,
-      createdAt: paste.createdAt,
+      id,
+      highlight,
+      url: `${Deno.env.get("BASE_URL")}/${id}.${highlight}`,
+      createdAt,
     };
 
     return new Response(JSON.stringify(response), {

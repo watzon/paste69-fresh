@@ -74,7 +74,7 @@ export default function About() {
                         {`{
     "id": "paste id",
     "contents": "paste contents",
-    "views": 0,
+    "highlight": "txt",
     "created_at": "2021-08-05T07:30:00.000Z",
 }`}
                     </code>
@@ -93,7 +93,7 @@ export default function About() {
                         {`{
     "id": "paste id",
     "contents": "paste contents",
-    "views": 0,
+    "highlight": "txt",
     "created_at": "2021-08-05T07:30:00.000Z",
 }`}
                     </code>

@@ -11,6 +11,8 @@ const autoLanguages = [
   "php",
   "py",
   "rb",
+  "rs",
+  "shell",
 ];
 
 for (const [lang, exts] of Object.entries(extensionMap)) {
@@ -31,6 +33,6 @@ export const highlight = (code: string, lang: string | undefined = undefined) =>
   if (!lang) {
     return hljs.highlightAuto(code, autoLanguages).value;
   } else {
-    return hljs.highlight(lang, code).value;
+    return hljs.highlight(code, { language: lang }).value;
   }
 };

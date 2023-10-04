@@ -1,5 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import Paste from "../interfaces/paste.ts";
+import Paste from "../interfaces/paste-schema.ts";
 import Editor from "../islands/Editor.tsx";
 import ToolBox from "../islands/ToolBox.tsx";
 import IconChevronRight from "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/chevron-right.tsx";
@@ -22,7 +22,6 @@ export const handler: Handlers<Paste> = {
 };
 
 export default function Home(props: PageProps<Paste>) {
-  console.log(props);
   return (
     <App>
       <div class="absolute top-[18px] left-[5px]">

@@ -1,11 +1,8 @@
-import { Client } from "postgres/mod.ts";
+import { MongoClient } from "mongodb/mod.ts";
+import PasteSchema from "../interfaces/paste-schema.ts";
 
-export const client = new Client({
-  database: Deno.env.get("DB_NAME")!,
-  hostname: Deno.env.get("DB_HOST")!,
-  user: Deno.env.get("DB_USER")!,
-  password: Deno.env.get("DB_PASSWORD")!,
-  port: parseInt(Deno.env.get("DB_PORT") || "5432"),
-});
+export const client = new MongoClient();
+await client.connect(Deno.env.get("DB_URL")!);
 
-await client.connect();
+export const db = client.database("paste69");
+export const pastes = db.collection<PasteSchema>("pastes");

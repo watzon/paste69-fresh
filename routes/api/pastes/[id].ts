@@ -1,22 +1,23 @@
 import { Handlers } from "$fresh/server.ts";
-import { client } from "../../../utils/db.ts";
-import Paste from "../../../interfaces/paste.ts";
+import { pastes } from "../../../utils/db.ts";
 
 export const handler: Handlers = {
   async GET(_req, ctx) {
     const id = ctx.params.id;
 
-    const result = await client.queryObject<Paste>({
-      camelcase: true,
-      text: "SELECT * FROM pastes WHERE id = $1",
-      args: [id],
-    });
-    const paste = result.rows[0];
+    const paste = await pastes.findOne({ id });
+
+    if (!paste) {
+      return new Response(JSON.stringify({ error: "Paste not found" }), {
+        status: 404,
+        headers: { "content-type": "application/json" },
+      });
+    }
 
     const response = {
       id: paste.id,
       contents: paste.contents,
-      views: paste.views,
+      highlight: paste.highlight,
       createdAt: paste.createdAt,
     };
 

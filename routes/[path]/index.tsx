@@ -3,7 +3,7 @@ import { Marked } from "https://esm.sh/@ts-stack/markdown@1.5.0";
 import ToolBox from "../../islands/ToolBox.tsx";
 import { Head } from "$fresh/runtime.ts";
 import { highlight } from "../../utils/hljs.ts";
-import Paste from "../../interfaces/paste.ts";
+import Paste from "../../interfaces/paste-schema.ts";
 
 Marked.setOptions({
   gfm: true,
@@ -35,7 +35,9 @@ export default function Home(props: PageProps<Paste>) {
 
   let markdown = false;
   const lines = (props.data.contents as string).split("\n");
-  const [id, ext] = path.split(".");
+
+  let [id, ext] = path.split(".");
+  ext ??= props.data.highlight
 
   let output: string;
 
@@ -47,7 +49,11 @@ export default function Home(props: PageProps<Paste>) {
     markdown = true;
     output = Marked.parse(props.data.contents as string);
   } else {
-    output = highlight(props.data.contents as string, ext);
+    try {
+      output = highlight(props.data.contents as string, ext);
+    } catch {
+      output = props.data.contents as string;
+    }
   }
 
   return (
