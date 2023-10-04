@@ -2,9 +2,82 @@
   "version": "3",
   "packages": {
     "specifiers": {
+      "npm:@sentry/node": "npm:@sentry/node@7.73.0",
       "npm:random-words": "npm:random-words@2.0.0"
     },
     "npm": {
+      "@sentry-internal/tracing@7.73.0": {
+        "integrity": "sha512-ig3WL/Nqp8nRQ52P205NaypGKNfIl/G+cIqge9xPW6zfRb5kJdM1YParw9GSJ1SPjEZBkBORGAML0on5H2FILw==",
+        "dependencies": {
+          "@sentry/core": "@sentry/core@7.73.0",
+          "@sentry/types": "@sentry/types@7.73.0",
+          "@sentry/utils": "@sentry/utils@7.73.0",
+          "tslib": "tslib@2.6.2"
+        }
+      },
+      "@sentry/core@7.73.0": {
+        "integrity": "sha512-9FEz4Gq848LOgVN2OxJGYuQqxv7cIVw69VlAzWHEm3njt8mjvlTq+7UiFsGRo84+59V2FQuHxzA7vVjl90WfSg==",
+        "dependencies": {
+          "@sentry/types": "@sentry/types@7.73.0",
+          "@sentry/utils": "@sentry/utils@7.73.0",
+          "tslib": "tslib@2.6.2"
+        }
+      },
+      "@sentry/node@7.73.0": {
+        "integrity": "sha512-i50bRfmgkRRx0XXUbg9jGD/RuznDJxJXc4rBILhoJuhl+BjRIaoXA3ayplfJn8JLZxsNh75uJaCq4IUK70SORw==",
+        "dependencies": {
+          "@sentry-internal/tracing": "@sentry-internal/tracing@7.73.0",
+          "@sentry/core": "@sentry/core@7.73.0",
+          "@sentry/types": "@sentry/types@7.73.0",
+          "@sentry/utils": "@sentry/utils@7.73.0",
+          "cookie": "cookie@0.5.0",
+          "https-proxy-agent": "https-proxy-agent@5.0.1",
+          "lru_map": "lru_map@0.3.3",
+          "tslib": "tslib@2.6.2"
+        }
+      },
+      "@sentry/types@7.73.0": {
+        "integrity": "sha512-/v8++bly8jW7r4cP2wswYiiVpn7eLLcqwnfPUMeCQze4zj3F3nTRIKc9BGHzU0V+fhHa3RwRC2ksqTGq1oJMDg==",
+        "dependencies": {}
+      },
+      "@sentry/utils@7.73.0": {
+        "integrity": "sha512-h3ZK/qpf4k76FhJV9uiSbvMz3V/0Ovy94C+5/9UgPMVCJXFmVsdw8n/dwANJ7LupVPfYP23xFGgebDMFlK1/2w==",
+        "dependencies": {
+          "@sentry/types": "@sentry/types@7.73.0",
+          "tslib": "tslib@2.6.2"
+        }
+      },
+      "agent-base@6.0.2": {
+        "integrity": "sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==",
+        "dependencies": {
+          "debug": "debug@4.3.4"
+        }
+      },
+      "cookie@0.5.0": {
+        "integrity": "sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==",
+        "dependencies": {}
+      },
+      "debug@4.3.4": {
+        "integrity": "sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==",
+        "dependencies": {
+          "ms": "ms@2.1.2"
+        }
+      },
+      "https-proxy-agent@5.0.1": {
+        "integrity": "sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==",
+        "dependencies": {
+          "agent-base": "agent-base@6.0.2",
+          "debug": "debug@4.3.4"
+        }
+      },
+      "lru_map@0.3.3": {
+        "integrity": "sha512-Pn9cox5CsMYngeDbmChANltQl+5pi6XmTrraMSzhPmMBbmgcxmqWry0U3PGapCU1yB4/LqCcom7qhHZiF/jGfQ==",
+        "dependencies": {}
+      },
+      "ms@2.1.2": {
+        "integrity": "sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==",
+        "dependencies": {}
+      },
       "random-words@2.0.0": {
         "integrity": "sha512-uqpnDqFnYrZajgmvgjmBrSZL2V1UA/9bNPGrilo12CmBeBszoff/avElutUlwWxG12gvmCk/8dUhvHefYxzYjw==",
         "dependencies": {
@@ -13,6 +86,10 @@
       },
       "seedrandom@3.0.5": {
         "integrity": "sha512-8OwmbklUNzwezjGInmZ+2clQmExQPvomqjL7LFqOYqtmuxRgQYqOD3mHaU+MvZn5FLUeVxVfQjwLZW/n/JFuqg==",
+        "dependencies": {}
+      },
+      "tslib@2.6.2": {
+        "integrity": "sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==",
         "dependencies": {}
       }
     }
@@ -445,6 +522,7 @@
     "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/moon.tsx": "627b1eab724c7a0540d2c0689986adc37ab2cfdff10507d5a6a7e9344bde4630",
     "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/sun.tsx": "9bd394f94227179a9585a44220ca0b7c6191d03c943b7c1fcf375aaf09f6f82a",
     "https://deno.land/x/tabler_icons_tsx@0.0.3/tsx/text-plus.tsx": "25b0528eca99b96777324eef33d4e49c4e1e3254033bd55c1384732cc5f6dd24",
+    "https://deno.land/x/tabler_icons_tsx@0.0.5/tsx/paperclip.tsx": "fbc01d4144a1548d44b1e12f4e8cfbb4778855e9093570e8910dc447548e59ce",
     "https://deno.land/x/ts_morph@17.0.1/common/DenoRuntime.ts": "537800e840d0994f9055164e11bf33eadf96419246af0d3c453793c3ae67bdb3",
     "https://deno.land/x/ts_morph@17.0.1/common/mod.ts": "01985d2ee7da8d1caee318a9d07664774fbee4e31602bc2bb6bb62c3489555ed",
     "https://deno.land/x/ts_morph@17.0.1/common/ts_morph_common.js": "49a79124b941ba2b35d81ac9eb90fc33c957b2640cdb97569c1941bac5a3bbdb",

@@ -4,12 +4,13 @@
 
 import * as $0 from "./routes/[path]/index.tsx";
 import * as $1 from "./routes/_404.tsx";
-import * as $2 from "./routes/_app.tsx";
-import * as $3 from "./routes/_layout.tsx";
-import * as $4 from "./routes/about.tsx";
-import * as $5 from "./routes/api/pastes/[id].ts";
-import * as $6 from "./routes/api/pastes/index.ts";
-import * as $7 from "./routes/index.tsx";
+import * as $2 from "./routes/_500.tsx";
+import * as $3 from "./routes/_app.tsx";
+import * as $4 from "./routes/_layout.tsx";
+import * as $5 from "./routes/about.tsx";
+import * as $6 from "./routes/api/pastes/[id].ts";
+import * as $7 from "./routes/api/pastes/index.ts";
+import * as $8 from "./routes/index.tsx";
 import * as $$0 from "./islands/App.tsx";
 import * as $$1 from "./islands/ColorMode.tsx";
 import * as $$2 from "./islands/Editor.tsx";
@@ -19,12 +20,13 @@ const manifest = {
   routes: {
     "./routes/[path]/index.tsx": $0,
     "./routes/_404.tsx": $1,
-    "./routes/_app.tsx": $2,
-    "./routes/_layout.tsx": $3,
-    "./routes/about.tsx": $4,
-    "./routes/api/pastes/[id].ts": $5,
-    "./routes/api/pastes/index.ts": $6,
-    "./routes/index.tsx": $7,
+    "./routes/_500.tsx": $2,
+    "./routes/_app.tsx": $3,
+    "./routes/_layout.tsx": $4,
+    "./routes/about.tsx": $5,
+    "./routes/api/pastes/[id].ts": $6,
+    "./routes/api/pastes/index.ts": $7,
+    "./routes/index.tsx": $8,
   },
   islands: {
     "./islands/App.tsx": $$0,

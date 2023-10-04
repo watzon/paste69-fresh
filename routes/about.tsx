@@ -23,7 +23,7 @@ export default function About() {
           <a href="https://github.com/watzon/paste69-fresh">GitHub</a>.
         </p>
 
-        <h2 class="mt-4 mb-2">Usage</h2>
+        <h2 id="usage" class="mt-4 mb-2"><a href="#usage">Usage</a></h2>
 
         <p>
           To create a paste, go <a href="/">home</a> or click the "New" button (<IconTextPlus class="inline-block w-4 h-4" />)
@@ -43,7 +43,7 @@ export default function About() {
           local storage, and loaded the next time you visit the site.
         </p>
 
-        <h2 class="mt-4 mb-2">CLI Script</h2>
+        <h2 id="cli-script" class="mt-4 mb-2"><a href="#cli-script">CLI Script</a></h2>
 
         <p>
           To make it easier to create pastes, a CLI script is available. The
@@ -80,14 +80,14 @@ export default function About() {
           </code>
         </pre>
 
-        <h2 class="mt-4 mb-2">API</h2>
+        <h2 id="api" class="mt-4 mb-2"><a href="#api">API</a></h2>
 
         <p>
           Paste69 has a simple API for creating and fetching pastes. The API is
           documented below.
         </p>
 
-        <h3 class="mt-4 mb-2">Creating a paste</h3>
+        <h3 id="api-creating-a-paste" class="mt-4 mb-2"><a href="#api-creating-a-paste">Creating a Paste</a></h3>
 
         <p>
           To create a paste, send a POST request to <code>/api/pastes</code>
@@ -117,7 +117,7 @@ export default function About() {
                     </code>
         </pre>
 
-        <h3 class="mt-4 mb-2">Fetching a paste</h3>
+        <h3 id="api-fetching-a-paste" class="mt-4 mb-2"><a href="#api-fetching-a-paste">Fetching a Paste</a></h3>
 
         <p>
           To fetch a paste, send a GET request to{" "}
