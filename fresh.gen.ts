@@ -2,37 +2,45 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/[path]/index.tsx";
-import * as $1 from "./routes/_404.tsx";
-import * as $2 from "./routes/_500.tsx";
-import * as $3 from "./routes/_app.tsx";
-import * as $4 from "./routes/_layout.tsx";
-import * as $5 from "./routes/about.tsx";
-import * as $6 from "./routes/api/pastes/[id].ts";
-import * as $7 from "./routes/api/pastes/index.ts";
-import * as $8 from "./routes/index.tsx";
+import * as $0 from "./routes/[path]/created.tsx";
+import * as $1 from "./routes/[path]/index.tsx";
+import * as $2 from "./routes/_404.tsx";
+import * as $3 from "./routes/_500.tsx";
+import * as $4 from "./routes/_app.tsx";
+import * as $5 from "./routes/_layout.tsx";
+import * as $6 from "./routes/about.tsx";
+import * as $7 from "./routes/api/pastes/[id].ts";
+import * as $8 from "./routes/api/pastes/index.ts";
+import * as $9 from "./routes/index.tsx";
 import * as $$0 from "./islands/App.tsx";
 import * as $$1 from "./islands/ColorMode.tsx";
 import * as $$2 from "./islands/Editor.tsx";
-import * as $$3 from "./islands/ToolBox.tsx";
+import * as $$3 from "./islands/EncryptionModal.tsx";
+import * as $$4 from "./islands/RenderedContent.tsx";
+import * as $$5 from "./islands/Switch.tsx";
+import * as $$6 from "./islands/ToolBox.tsx";
 
 const manifest = {
   routes: {
-    "./routes/[path]/index.tsx": $0,
-    "./routes/_404.tsx": $1,
-    "./routes/_500.tsx": $2,
-    "./routes/_app.tsx": $3,
-    "./routes/_layout.tsx": $4,
-    "./routes/about.tsx": $5,
-    "./routes/api/pastes/[id].ts": $6,
-    "./routes/api/pastes/index.ts": $7,
-    "./routes/index.tsx": $8,
+    "./routes/[path]/created.tsx": $0,
+    "./routes/[path]/index.tsx": $1,
+    "./routes/_404.tsx": $2,
+    "./routes/_500.tsx": $3,
+    "./routes/_app.tsx": $4,
+    "./routes/_layout.tsx": $5,
+    "./routes/about.tsx": $6,
+    "./routes/api/pastes/[id].ts": $7,
+    "./routes/api/pastes/index.ts": $8,
+    "./routes/index.tsx": $9,
   },
   islands: {
     "./islands/App.tsx": $$0,
     "./islands/ColorMode.tsx": $$1,
     "./islands/Editor.tsx": $$2,
-    "./islands/ToolBox.tsx": $$3,
+    "./islands/EncryptionModal.tsx": $$3,
+    "./islands/RenderedContent.tsx": $$4,
+    "./islands/Switch.tsx": $$5,
+    "./islands/ToolBox.tsx": $$6,
   },
   baseUrl: import.meta.url,
 };

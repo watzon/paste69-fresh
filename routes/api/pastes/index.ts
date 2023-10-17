@@ -2,10 +2,11 @@ import { Handlers } from "$fresh/server.ts";
 import { pastes } from "../../../utils/db.ts";
 import { generate } from "npm:random-words";
 import { detectLanguage } from "../../../utils/hljs.ts";
+import { encrypt as encryptContents } from "../../../utils/encryption.ts";
 
 export const handler: Handlers = {
   async POST(req, _ctx) {
-    const { contents } = await req.json();
+    let { contents, encrypt, password, burnAfterReading } = await req.json();
     const id = generate({ exactly: 3, join: "-" });
 
     if (!contents || contents.length === 0) {
@@ -18,10 +19,23 @@ export const handler: Handlers = {
     const highlight = detectLanguage(contents) || "txt";
     const createdAt = new Date();
 
+    if (encrypt) {
+      if (!password || password.length === 0) {
+        return new Response(JSON.stringify({ error: "No password provided" }), {
+          status: 400,
+          headers: { "content-type": "application/json" },
+        });
+      }
+
+      contents = await encryptContents(contents, password);
+    }
+
     await pastes.insertOne({
       id,
       contents,
       highlight,
+      encrypted: encrypt,
+      burnAfterReading,
       createdAt,
     });
 

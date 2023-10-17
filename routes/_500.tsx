@@ -16,7 +16,7 @@ export default function Error404({ error }: ErrorPageProps) {
       </div>
       <div class="flex flex-row items-center justify-center h-screen">
         <div class="prose prose-xl dark:prose-dark text-center">
-          <h1 class="mb-2 p-0">403</h1>
+          <h1 class="mb-2 p-0">500</h1>
           <p class="mb-2">Something bad has happened on our end. Sorry!</p>
         </div>
       </div>

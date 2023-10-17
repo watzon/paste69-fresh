@@ -18,6 +18,8 @@ export const handler: Handlers = {
       id: paste.id,
       url: `${Deno.env.get("SITE_URL")}/${paste.id}.${paste.highlight}`,
       contents: paste.contents,
+      burnAfterReading: paste.burnAfterReading,
+      encrypted: paste.encrypted,
       highlight: paste.highlight,
       createdAt: paste.createdAt,
     };
